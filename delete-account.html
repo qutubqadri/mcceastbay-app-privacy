@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - MCC East Bay App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #fafafa;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid #C9A861;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2D2420;
+            margin-bottom: 8px;
+        }
+        
+        .logo span {
+            color: #C9A861;
+        }
+        
+        h1 {
+            font-size: 28px;
+            color: #1A1410;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 15px;
+        }
+        
+        h2 {
+            font-size: 20px;
+            color: #2D2420;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            color: #444;
+        }
+        
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            color: #444;
+        }
+        
+        .warning-box {
+            background-color: #fff8e6;
+            border-left: 4px solid #f5a623;
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning-box h3 {
+            color: #b7791f;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .warning-box p {
+            margin-bottom: 0;
+            color: #744210;
+        }
+        
+        .info-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3182ce;
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .info-box p {
+            margin-bottom: 0;
+            color: #2c5282;
+        }
+        
+        .method-card {
+            background-color: #f8f5f0;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+        }
+        
+        .method-card h3 {
+            color: #2D2420;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .method-card ol {
+            margin-bottom: 0;
+        }
+        
+        .email-button {
+            display: inline-block;
+            background-color: #C9A861;
+            color: #1A1410;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 16px 0;
+            transition: background-color 0.2s;
+        }
+        
+        .email-button:hover {
+            background-color: #b8954d;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-table th {
+            background-color: #f8f5f0;
+            color: #2D2420;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            color: #444;
+        }
+        
+        .badge-deleted {
+            background-color: #fed7d7;
+            color: #c53030;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .badge-retained {
+            background-color: #fefcbf;
+            color: #975a16;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .contact-section {
+            background-color: #2D2420;
+            color: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 32px;
+        }
+        
+        .contact-section h2 {
+            color: #C9A861;
+            margin-top: 0;
+        }
+        
+        .contact-section p {
+            color: #e0d6c8;
+            margin-bottom: 8px;
+        }
+        
+        .contact-section a {
+            color: #C9A861;
+            text-decoration: none;
+        }
+        
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid #eee;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .footer a {
+            color: #C9A861;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .data-table {
+                font-size: 14px;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">MCC <span>East Bay</span></div>
+            <h1>Delete Your Account</h1>
+            <p class="subtitle">Request deletion of your MCC East Bay app account and data</p>
+        </header>
+        
+        <main>
+            <p>We respect your right to control your personal data. This page explains how to request deletion of your MCC East Bay app account and what data will be affected.</p>
+            
+            <div class="warning-box">
+                <h3>⚠️ Before You Delete</h3>
+                <p>Account deletion is permanent and cannot be undone. You will lose access to your saved events, giving history, prayer notification settings, and any other personalized data.</p>
+            </div>
+            
+            <h2>How to Delete Your Account</h2>
+            
+            <div class="method-card">
+                <h3>Option 1: Delete from the App (Recommended)</h3>
+                <ol>
+                    <li>Open the MCC East Bay app</li>
+                    <li>Go to the <strong>Profile</strong> tab</li>
+                    <li>Scroll down and tap <strong>"Delete Account"</strong></li>
+                    <li>Confirm your decision when prompted</li>
+                    <li>Your account will be deleted immediately</li>
+                </ol>
+            </div>
+            
+            <div class="method-card">
+                <h3>Option 2: Request via Email</h3>
+                <p>If you cannot access the app, send us an email with your account deletion request:</p>
+                <a href="mailto:info@mcceastbay.org?subject=MCC%20East%20Bay%20App%20-%20Account%20Deletion%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20the%20deletion%20of%20my%20MCC%20East%20Bay%20app%20account.%0A%0AEmail%20associated%20with%20my%20account%3A%20%5BYour%20email%20here%5D%0A%0AThank%20you." class="email-button">
+                    📧 Send Deletion Request
+                </a>
+                <p style="font-size: 14px; color: #666; margin-top: 8px;">Please include the email address associated with your account.</p>
+            </div>
+            
+            <h2>What Data Will Be Deleted</h2>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Profile information (name, email, phone)</td>
+                        <td><span class="badge-deleted">Deleted</span></td>
+                    </tr>
+                    <tr>
+                        <td>Saved/bookmarked events</td>
+                        <td><span class="badge-deleted">Deleted</span></td>
+                    </tr>
+                    <tr>
+                        <td>Ramadan giving goals and streaks</td>
+                        <td><span class="badge-deleted">Deleted</span></td>
+                    </tr>
+                    <tr>
+                        <td>Prayer notification preferences</td>
+                        <td><span class="badge-deleted">Deleted</span></td>
+                    </tr>
+                    <tr>
+                        <td>Event RSVPs and registrations</td>
+                        <td><span class="badge-deleted">Deleted</span></td>
+                    </tr>
+                    <tr>
+                        <td>Push notification tokens</td>
+                        <td><span class="badge-deleted">Deleted</span></td>
+                    </tr>
+                    <tr>
+                        <td>Donation records (if any)*</td>
+                        <td><span class="badge-retained">Retained for legal compliance</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box">
+                <p><strong>*Note:</strong> Donation records processed through Kindful may be retained for tax and legal compliance purposes as required by law. Contact Kindful directly for questions about donation data.</p>
+            </div>
+            
+            <h2>Processing Time</h2>
+            <ul>
+                <li><strong>In-app deletion:</strong> Immediate</li>
+                <li><strong>Email requests:</strong> Within 7 business days</li>
+            </ul>
+            <p>You will receive a confirmation email once your account has been deleted.</p>
+            
+            <h2>After Deletion</h2>
+            <ul>
+                <li>You will be signed out of the app automatically</li>
+                <li>You can continue using the app as a guest (view prayer times, browse events)</li>
+                <li>You can create a new account at any time with the same or different email</li>
+            </ul>
+            
+            <div class="contact-section">
+                <h2>Questions?</h2>
+                <p>If you have questions about account deletion or your data, please contact us:</p>
+                <p><strong>Muslim Community Center East Bay</strong></p>
+                <p>Email: <a href="mailto:info@mcceastbay.org">info@mcceastbay.org</a></p>
+                <p>Phone: <a href="tel:+19254851786">(925) 485-1786</a></p>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p><a href="index.html">← Back to Privacy Policy</a></p>
+            <p style="margin-top: 12px;">© 2026 Muslim Community Center East Bay. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
